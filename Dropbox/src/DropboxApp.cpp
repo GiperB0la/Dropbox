@@ -105,7 +105,11 @@ void DropboxApp::run()
 {
     pingThread = std::thread([this]() {
         while (keepPinging) {
+            bool nempConnect = isConnected;
             isConnected = this->ping(serverIP, serverPort);
+            if (!nempConnect && isConnected) {
+                updateFilesList();
+            }
             std::this_thread::sleep_for(std::chrono::seconds(4));
         }
     });

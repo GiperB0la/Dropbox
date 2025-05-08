@@ -16,7 +16,7 @@ enum class CategoryButtonFile
 class FileWidget
 {
 public:
-    FileWidget(const std::string& nameFile, const sf::Font& font, const sf::Vector2f& position, const std::string& mainPath, 
+    FileWidget(const std::string& nameFile, const sf::Vector2f& position, const std::string& mainPath, 
         size_t count, const std::string& serverIP, uint16_t serverPort);
 
 public:
@@ -31,6 +31,7 @@ private:
 
 private:
     static sf::Texture fileT;
+    static sf::Font font;
     sf::Sprite fileS;
     sf::Text textFile;
     sf::Vector2f position;

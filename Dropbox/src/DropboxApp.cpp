@@ -3,8 +3,6 @@
 
 DropboxApp::DropboxApp()
     : serverIP("127.0.0.1"), serverPort(8888),
-    inputIP("Graphics\\Textures\\Input.png", font, sf::Vector2f(0.f, 0.f), "IP Address..."),
-    inputPort("Graphics\\Textures\\Input.png", font, sf::Vector2f(0.f, 0.f), "Port..."),
     mainPath(std::filesystem::current_path().string())
 {
     init();
@@ -12,8 +10,6 @@ DropboxApp::DropboxApp()
 
 DropboxApp::DropboxApp(std::string serverIP, uint16_t serverPort)
     : serverIP(serverIP), serverPort(serverPort),
-    inputIP("Graphics\\Textures\\Input.png", font, sf::Vector2f(0.f, 0.f), "IP Address..."),
-    inputPort("Graphics\\Textures\\Input.png", font, sf::Vector2f(0.f, 0.f), "Port..."),
     mainPath(std::filesystem::current_path().string())
 {
     init();
@@ -30,23 +26,23 @@ void DropboxApp::init()
     DragAndDrop* dropTarget = new DragAndDrop(hwnd);
     RegisterDragDrop(hwnd, dropTarget);
 
-    mainT.loadFromFile("Graphics\\Textures\\Main.png");
+    mainT.loadFromFile(mainPath + "\\Graphics\\Textures\\Main.png");
     mainS.setTexture(mainT);
     mainS.setPosition(sf::Vector2f(0.f, 0.f));
 
-    settingsT.loadFromFile("Graphics\\Textures\\Settings.png");
+    settingsT.loadFromFile(mainPath + "\\Graphics\\Textures\\Settings.png");
     settingsS.setTexture(settingsT);
     settingsS.setPosition(sf::Vector2f(0.f, 130.f));
 
-    pathT.loadFromFile("Graphics\\Textures\\Path.png");
+    pathT.loadFromFile(mainPath + "\\Graphics\\Textures\\Path.png");
     pathS.setTexture(pathT);
     pathS.setPosition(sf::Vector2f(400.f, 130.f));
 
-    dragDropT.loadFromFile("Graphics\\Textures\\DragAndDrop.png");
+    dragDropT.loadFromFile(mainPath + "\\Graphics\\Textures\\DragAndDrop.png");
     dragDropS.setTexture(dragDropT);
     dragDropS.setPosition(sf::Vector2f(18.f, 168.f));
 
-    font.loadFromFile("Graphics\\Fonts\\Inter\\Inter-Regular.otf");
+    font.loadFromFile(mainPath + "\\Graphics\\Fonts\\Inter\\Inter-Regular.otf");
     successErrorConnect.setFont(font);
 
     ipPort.setFont(font);
@@ -71,9 +67,6 @@ void DropboxApp::init()
     selectedPath.setFillColor(sf::Color(170, 170, 170));
     selectedPath.setCharacterSize(14);
 
-    inputIP.setPosition(settingsS.getPosition().x + 16.f, settingsS.getPosition().y + 47.f);
-    inputPort.setPosition(settingsS.getPosition().x + 16.f, settingsS.getPosition().y + 122.f);
-
     createButtons();
 
     fileListView.setViewport(sf::FloatRect(
@@ -92,6 +85,9 @@ void DropboxApp::init()
     scrollbarSlider = RoundRectangle(sf::Vector2f(6.f, 422.f), 3);
     scrollbarSlider.setFillColor(sf::Color(65, 65, 65));
     scrollbarSlider.setPosition(789.f, 168.f);
+
+    inputIP.init(mainPath + "\\Graphics\\Textures\\Input.png", font, sf::Vector2f(settingsS.getPosition().x + 16.f, settingsS.getPosition().y + 47.f), "IP Address...");
+    inputPort.init(mainPath + "\\Graphics\\Textures\\Input.png", font, sf::Vector2f(settingsS.getPosition().x + 16.f, settingsS.getPosition().y + 122.f), "Port...");
 
     /*thread_network = std::thread(&DropboxApp::updateFilesList, this);
     thread_network.detach();*/
@@ -747,7 +743,7 @@ void DropboxApp::updateFilesList()
         sf::Vector2f position(paddingX, posY);
 
         std::cout << filesList[i] << std::endl;
-        fileWidgets.emplace_back(filesList[i], font, position, mainPath, i + 1, serverIP, serverPort);
+        fileWidgets.emplace_back(filesList[i], position, mainPath, i + 1, serverIP, serverPort);
     }
 
     float contentHeight = filesList.size() * (62.f + 10.f);

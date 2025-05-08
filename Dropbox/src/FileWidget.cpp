@@ -2,11 +2,18 @@
 
 
 sf::Texture FileWidget::fileT;
+sf::Font FileWidget::font;
 
-FileWidget::FileWidget(const std::string& nameFile, const sf::Font& font, const sf::Vector2f& position, const std::string& mainPath, 
+FileWidget::FileWidget(const std::string& nameFile, const sf::Vector2f& position, const std::string& mainPath, 
 	size_t count, const std::string& serverIP, uint16_t serverPort)
 	: nameFile(nameFile), position(position), serverIP(serverIP), serverPort(serverPort)
 {
+	if (font.getInfo().family.empty()) {
+		if (!font.loadFromFile(mainPath + "\\Graphics\\Fonts\\Inter\\Inter-Regular.otf")) {
+			std::cerr << "[-] Failed to load font." << std::endl;
+		}
+	}
+
 	if (fileT.getSize().x == 0) {
 		if (!fileT.loadFromFile(mainPath + "\\Graphics\\Textures\\File.png")) {
 			std::cerr << "[-] Failed to load texture File.png" << std::endl;
@@ -15,7 +22,7 @@ FileWidget::FileWidget(const std::string& nameFile, const sf::Font& font, const 
 	fileS.setTexture(fileT);
 	fileS.setPosition(position);
 
-	std::wstring nameFileTemp;
+	std::wstring nameFileTemp = L"";
 	{
 		std::wstring nameFull = cp1251_to_wstring(std::to_string(count) + ". " + nameFile);
 		nameFull = remove_nonprintable(nameFull);

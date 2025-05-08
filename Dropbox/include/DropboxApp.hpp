@@ -13,16 +13,6 @@
 #include <windows.h>
 #include <shlobj.h>
 
-#ifdef _DEBUG
-    #pragma comment(lib, "sfml-graphics-d.lib")
-    #pragma comment(lib, "sfml-window-d.lib")
-    #pragma comment(lib, "sfml-system-d.lib")
-#else
-    #pragma comment(lib, "sfml-graphics.lib")
-    #pragma comment(lib, "sfml-window.lib")
-    #pragma comment(lib, "sfml-system.lib")
-#endif
-
 #define WIDTH 800
 #define HEIGHT 600
 

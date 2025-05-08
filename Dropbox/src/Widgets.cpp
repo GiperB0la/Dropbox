@@ -20,7 +20,7 @@ Button::Button(
 	: category(category),
 	position(position),
 	text(text, font, size_text),
-	font(font), size_text(size_text),
+	size_text(size_text),
 	color_text_normal(color_text_normal),
 	color_text_hovered(color_text_hovered),
 	color_text_pressed(color_text_pressed),
@@ -525,12 +525,16 @@ void InputField::updateCursorPosition()
 
 // IPInputField
 
-IPInputField::IPInputField(const std::string& textureFile, const sf::Font& font, sf::Vector2f position, const std::string placeholder, float padding, unsigned int charSize)
-	: position(position), padding_(padding), placeholder_(placeholder) 
+void IPInputField::init(const std::string& textureFile, const sf::Font& font, sf::Vector2f position, const std::string placeholder, float padding, unsigned int charSize)
 {
+	this->position = position;
+	this->padding_ = padding;
+	this->placeholder_ = placeholder;
+
 	if (!texture_.loadFromFile(textureFile)) {
 		throw std::runtime_error("Failed to load texture: " + textureFile);
 	}
+
 	sprite_.setTexture(texture_);
 	sprite_.setPosition(position);
 
@@ -635,11 +639,16 @@ void IPInputField::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 // PortInputField
 
-PortInputField::PortInputField(const std::string& textureFile, const sf::Font& font, sf::Vector2f position, const std::string placeholder, float padding, unsigned int charSize)
-	: position(position), padding_(padding), placeholder_(placeholder) {
+void PortInputField::init(const std::string& textureFile, const sf::Font& font, sf::Vector2f position, const std::string placeholder, float padding, unsigned int charSize)
+{
+	this->position = position;
+	this->padding_ = padding;
+	this->placeholder_ = placeholder;
+
 	if (!texture_.loadFromFile(textureFile)) {
 		throw std::runtime_error("Failed to load texture: " + textureFile);
 	}
+
 	sprite_.setTexture(texture_);
 	sprite_.setPosition(position);
 

@@ -62,7 +62,6 @@ protected:
 
 protected:
 	sf::Text text;
-	sf::Font font;
 	size_t size_text;
 	sf::Vector2f position_text;
 	sf::Color color_text_normal;
@@ -194,9 +193,10 @@ private:
 class IPInputField : public sf::Drawable
 {
 public:
-	IPInputField(const std::string& textureFile, const sf::Font& font, sf::Vector2f pos, const std::string placeholder = "", float padding = 10.f, unsigned int charSize = 14);
+	IPInputField() = default;
 
 public:
+	void init(const std::string& textureFile, const sf::Font& font, sf::Vector2f pos, const std::string placeholder = "", float padding = 10.f, unsigned int charSize = 14);
 	void setPosition(float x, float y);
 	void handleEvent(const sf::Event& event);
 	const std::string& getInput() const;
@@ -215,7 +215,7 @@ private:
 	std::string input_;
 	std::string placeholder_;
 	bool hasFocus_;
-	const float padding_ = 10.f;
+	float padding_ = 10.f;
 	sf::Vector2f position;
 };
 
@@ -225,9 +225,10 @@ private:
 class PortInputField : public sf::Drawable
 {
 public:
-	PortInputField(const std::string& textureFile, const sf::Font& font, sf::Vector2f pos, const std::string placeholder = "", float padding = 10.f, unsigned int charSize = 14);
+	PortInputField() = default;
 
 public:
+	void init(const std::string& textureFile, const sf::Font& font, sf::Vector2f pos, const std::string placeholder = "", float padding = 10.f, unsigned int charSize = 14);
 	void setPosition(float x, float y);
 	void handleEvent(const sf::Event& event);
 	const std::string& getInput() const;
@@ -246,7 +247,7 @@ private:
 	std::string input_;
 	std::string placeholder_;
 	bool hasFocus_;
-	const float padding_ = 10.f;
+	float padding_ = 10.f;
 	sf::Vector2f position;
 };
 

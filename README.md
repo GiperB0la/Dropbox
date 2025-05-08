@@ -3,5 +3,5 @@ It is a client application with an SFML-based graphical interface designed to ma
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="[https://github.com/GiperB0la/GiperbolaBook/blob/main/Screen.png](https://github.com/GiperB0la/Dropbox/blob/main/Screen.jpg)">
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="Screen" src="Screen.png">
+ <img alt="Screen" src="Screen.jpg">
 </picture>

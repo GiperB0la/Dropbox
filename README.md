@@ -1,7 +1,21 @@
-It is a client application with an SFML-based graphical interface designed to manage files on a remote server. The user can upload files to the server, including using Drag & Drop, download them back and delete them if necessary. In the application menu, you can configure the server's IP address and port, as well as select the local folder where the downloaded files will be saved. The interface is designed with an emphasis on simplicity and convenience, providing quick access to all basic functions.
+# 📂 Remote File Manager (SFML Client)
+
+**Remote File Manager** is a client application with a **SFML-based graphical interface** designed to manage files on a remote server.  
+
+### ✨ Features
+- 📤 **Upload files** to the server (including Drag & Drop support).  
+- 📥 **Download files** back to your computer.  
+- ❌ **Delete** unnecessary files.  
+- ⚙️ Configure the server’s **IP address** and **port**.  
+- 📁 Choose a local folder to save downloaded files.  
+- 🖥️ A simple and user-friendly interface for quick access to all basic functions.  
+
+---
+
+### 🖼️ Screenshot
 
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="[https://github.com/GiperB0la/GiperbolaBook/blob/main/Screen.png](https://github.com/GiperB0la/Dropbox/blob/main/Screen.jpg)">
- <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="Screen" src="Screen.jpg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/GiperB0la/Dropbox/blob/main/Screen.jpg">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/GiperB0la/Dropbox/blob/main/Screen.jpg">
+  <img alt="Screen" src="https://github.com/GiperB0la/Dropbox/blob/main/Screen.jpg">
 </picture>

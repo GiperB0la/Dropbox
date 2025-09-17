@@ -1,6 +1,6 @@
-# 📂 Remote File Manager
+# 📂 Dropbox
 
-**Remote File Manager** is a client application with a **SFML-based graphical interface** designed to manage files on a remote server.  
+**Dropbox** is a client application with a **SFML-based graphical interface** designed to manage files on a remote server.  
 
 ### ✨ Features
 - 📤 **Upload files** to the server (including Drag & Drop support).  

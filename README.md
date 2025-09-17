@@ -1,4 +1,4 @@
-# 📂 Remote File Manager (SFML Client)
+# 📂 Remote File Manager
 
 **Remote File Manager** is a client application with a **SFML-based graphical interface** designed to manage files on a remote server.  
 

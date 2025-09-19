@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Dropbox\\Dropbox.vcxproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "DropboxServer\\DropboxServer.vcxproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
